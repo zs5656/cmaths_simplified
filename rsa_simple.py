@@ -3,14 +3,14 @@ import primeg
 import random
 
 def rsa_gen():
-    largeNos = input("This program produces very large numbers in the encryption and decryption \nphases, would you like for them to be an output?\nY = Yes, N = No\n")
+    largeNos = input("This program produces very large numbers in the encryption and decryption \nphases, would you like for them to be an output?\nYes has more detail, but overall takes longer than No.\nY = Yes, N = No\n")
     if largeNos == 'Y':
         display_LargeNos = True
     else:
         display_LargeNos = False
 
     print("Enter in bounds for the generation of the prime keys.\n")
-    print("=" * 15)
+    print("=" * 30)
 
     low = int(input("What is the lower bound? "))
     upp = int(input("what is the upper bound? "))
@@ -87,8 +87,10 @@ def rsa_gen():
         print("Message\n", ascii_decry2)
     elif (display_LargeNos == False):
         for i in range (0, int(ascii_length)):
-            ascii_cipher.append((ascii_values[i] ** e) % n)
-            ascii_decry2.append((ascii_cipher[i] ** d) % n)
+            # ascii_cipher.append((ascii_values[i] ** e) % n)
+            # ascii_decry2.append((ascii_cipher[i] ** d) % n)
+            ascii_cipher.append(pow(ascii_values[i], e, n))
+            ascii_decry2.append(pow(ascii_cipher[i], d, n))
         print("Ciphertext\n", ascii_cipher)
         print("Message\n", ascii_decry2)
 

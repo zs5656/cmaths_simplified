@@ -12,6 +12,7 @@ import time
 #    case _:
 #        print("bruh")
 
+
 def isPrime(num):
     # Function that runs through numbers and checks if it is prime.
     # Normally, you only have to search for number N possible factors up to N / 2 or sqrt(N)
