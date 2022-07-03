@@ -7,4 +7,9 @@ RSA simulation that uses python to encrypt and decrypt simple messages. Also inc
 - Git
 - Github push and pull extension
 
-Then clone the repository and run the .py files in order to get an output
+Then clone the repository and run the .py files in order to get an output.
+This program can do the following things:
+
+- Generate a series of prime numbers from a range of numbers
+- Factorise simple numbers
+- Conduct simple RSA simulations
