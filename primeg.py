@@ -1,9 +1,5 @@
 import math
 import time
-import main
-
-def main():
-    main.main()
 
 # This here is python 3.10 code. Now unfortunately because Visual Studio 2022 is a dumbfuck it didn't support it and I'm not changing it because I don't feel like it.
 #match mode:
@@ -37,6 +33,7 @@ def prime_userT():
     primes(low, upp)
 
 def primes(lower_bound, upper_bound):
+    f = open("primes.txt", 'w')
     primes = []
 
     # Runs through numbers from LB -> UB to check for primes & appends it to val[] 
@@ -47,6 +44,8 @@ def primes(lower_bound, upper_bound):
         else:
             primes.append(val)
     print("Prime numbers generated: ", primes, "\n")    
+    f.write(str(primes))
+    f.close()
     return primes
 
 def fact_simple():    
