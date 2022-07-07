@@ -1,9 +1,6 @@
 import primeg
 import rsa_simple
-import time
 import rsa_complex
-
-# Function "42069" is for testing, not meant to be a main part
 
 def main():
     # sets what mode the program should run in, if called. 
