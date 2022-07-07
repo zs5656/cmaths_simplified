@@ -1,7 +1,11 @@
 import math
 import time
+import main
 
-# Python 3.10 code, not supported yet but this is what it WOULD look like.
+def main():
+    main.main()
+
+# This here is python 3.10 code. Now unfortunately because Visual Studio 2022 is a dumbfuck it didn't support it and I'm not changing it because I don't feel like it.
 #match mode:
 #    case 1:
 #        prime_userT()
@@ -11,7 +15,6 @@ import time
 #        fact_complex()
 #    case _:
 #        print("bruh")
-
 
 def isPrime(num):
     # Function that runs through numbers and checks if it is prime.
