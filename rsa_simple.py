@@ -1,6 +1,7 @@
 ﻿from string import ascii_letters
 import primeg
 import random
+import main
 
 # For some reason numbers greater than 300 000 as a lower bound tend to fuck the system, error message put in.
 
@@ -104,3 +105,6 @@ def rsa_gen():
     print("\n\nFinal Message:\n", d_message)
     s = ''.join(d_message)
     print(s)
+
+if __name__ == "__main__":
+    main.main()
