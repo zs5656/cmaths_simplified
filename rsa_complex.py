@@ -3,7 +3,6 @@ import sys
 import os
 import cryptomath
 import RabinMiller
-import main
 
 def main():
     makeKeyFiles('Test_RSA', 2048)
@@ -67,6 +66,3 @@ def makeKeyFiles(name, keySize):
         file = open("%s_private.txt" % name, 'w')
         file.write('%s,%s,%s' % (keySize, privateKey[0], privateKey[1]))
         file.close()
-
-if __name__ == "__main__":
-    main.main()

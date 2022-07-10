@@ -1,6 +1,5 @@
 import math
 import time
-import main
 
 # This here is python 3.10 code. Now unfortunately because Visual Studio 2022 is a dumbfuck it didn't support it and I'm not changing it because I don't feel like it.
 #match mode:
@@ -44,7 +43,7 @@ def primes(lower_bound, upper_bound):
                 break
         else:
             primes.append(val)
-            print(val)
+            #print(val)
     print("Prime numbers generated: ", primes, "\n")    
     f.write(str(primes))
     f.close()
@@ -101,6 +100,3 @@ def fact_complex():
         factors.append(int(n_input))
     print(factors)
     print(time.time() - t0, " s processing time. ")
-
-if __name__ == "__main__":
-    main.main()
