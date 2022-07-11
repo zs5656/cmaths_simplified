@@ -3,7 +3,6 @@ import primeg
 import random
 
 # For some reason numbers greater than 300 000 as a lower bound tend to fuck the system, error message put in.
-
 def rsa_gen():
     largeNos = input("This program produces very large numbers in the encryption and decryption \nphases, would you like for them to be an output?\nYes has more detail, but overall takes longer than No.\nY = Yes, N = No\n")
     print("Also, try not to put the lower bound higher than about 300 000, numbers higher than that don't work very well to say the least.")
