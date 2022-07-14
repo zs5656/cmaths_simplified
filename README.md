@@ -1,7 +1,11 @@
 # cmaths_simplified
 
-RSA simulation that uses python to encrypt and decrypt simple messages. Also includes barebones factorisation and prime generation programs. In order to work wiht these you're going to want to install the following items:
+RSA simulation that uses python to encrypt and decrypt simple messages. Also includes barebones factorisation and prime generation programs. There are two ways to work with this:
 
+1. EXE install
+- Just click "Releases" -> "v1.0.0" -> Download .exe file and run it. Don't worry, it's not a virus, you can check the source code
+
+2. VSCode Install, or in an IDE
 - Visual Studio Code
 - Python extension in Visual Studio Code
 - Git
