@@ -1,5 +1,6 @@
 import math
 import time
+import os
 
 # This here is python 3.10 code. Now unfortunately because Visual Studio 2022 is a dumbfuck it didn't support it and I'm not changing it because I don't feel like it.
 #match mode:
@@ -52,9 +53,9 @@ def primes(lower_bound, upper_bound):
 def fact_simple():    
     # Simple factorisation method, which will run through every number until the number input say N is reduced to 1. 
     # Complex factorisation method first compiles a list of primes and will only test for the primes. However, this in practice ends up being even slower than simple factorisation for very small numbers...
-    t0 = time.time()
 
     n_input = int(input("Enter the number you want to factorise: "))
+    t0 = time.time()
     factors = []
     if (isPrime(n_input)):
         print(n_input)
@@ -73,10 +74,9 @@ def fact_simple():
 
 
 def fact_complex():
-    t0 = time.time()
-
     factors = []
     n_input = int(input("Enter the number you want to factorise: "))
+    t0 = time.time()
     if (isPrime(n_input)):
         print(n_input)
         factors.append(int(n_input))
@@ -88,7 +88,7 @@ def fact_complex():
             primeL2 = primes(997, sqrt_n)
             primel.extend(primeL2)
 
-        while(n_input != 1 and isPrime(n_input) == False):
+        while(isPrime(n_input) == False):
             for i in range(0, len(primel)):
                 while(n_input % primel[i] == 0):
                     print(primel[i])
@@ -100,3 +100,4 @@ def fact_complex():
         factors.append(int(n_input))
     print(factors)
     print(time.time() - t0, " s processing time. ")
+    os.system('pause')
