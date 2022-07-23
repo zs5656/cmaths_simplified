@@ -1,6 +1,7 @@
 import math
 import time
 import os
+#from sympy import *
 
 # This here is python 3.10 code. Now unfortunately because Visual Studio 2022 is a dumbfuck it didn't support it and I'm not changing it because I don't feel like it.
 #match mode:
@@ -14,27 +15,25 @@ import os
 #        print("bruh")
 
 def isPrime(num):
-    # Function that runs through numbers and checks if it is prime.
-    # Normally, you only have to search for number N possible factors up to N / 2 or sqrt(N)
-    if num > 1:
-        for i in range(2, int(math.sqrt(num)) + 1):
-            if num % i == 0:
-                return False
-                break
-        else:
-            return True
-    else:
+    if num == 1:
         return False
+    i = 2
+    while i*i <= num:
+        if num % i == 0:
+            return False
+        i += 1
+    return True
 
 def prime_userT():
     # This is for if the prime function is triggered by the user manually and not as part of another function
 
     low = int(input("What is the lower bound? "))
     upp = int(input("what is the upper bound? "))
-    primes(low, upp)
+    primes(low, upp, 0)
 
-def primes(lower_bound, upper_bound):
-    f = open("primes.txt", 'w')
+def primes(lower_bound, upper_bound, mode):
+    if mode == 0:
+        f = open("primes.txt", 'w')
     primes = []
 
     # Runs through numbers from LB -> UB to check for primes & appends it to val[] 
@@ -45,9 +44,10 @@ def primes(lower_bound, upper_bound):
         else:
             primes.append(val)
             #print(val)
-    print("Prime numbers generated: ", primes, "\n")    
-    f.write(str(primes))
-    f.close()
+    if mode == 0:
+        print("Prime numbers generated: ", primes, "\n")    
+        f.write(str(primes))
+        f.close()
     return primes
 
 def fact_simple():    
@@ -72,32 +72,29 @@ def fact_simple():
         print(factors)
         print(time.time() - t0, " s processing time. ")
 
-
 def fact_complex():
     factors = []
     n_input = int(input("Enter the number you want to factorise: "))
     t0 = time.time()
-    if (isPrime(n_input)):
-        print(n_input)
-        factors.append(int(n_input))
-    else:
-        primel = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
+    primel = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
 
-        sqrt_n = int(math.sqrt(n_input))
-        if (sqrt_n > 997):
-            primeL2 = primes(997, sqrt_n)
-            primel.extend(primeL2)
+    sqrt_n = int(math.sqrt(n_input))
+    if (sqrt_n > 997):
+        primeL2 = primes(997, sqrt_n, 1)
+        primel.extend(primeL2)
 
-        while(isPrime(n_input) == False):
-            for i in range(0, len(primel)):
-                while(n_input % primel[i] == 0):
-                    print(primel[i])
-                    factors.append(primel[i])
-                    n_input /= primel[i]
-                if n_input in primel:
-                    break 
+    while(isPrime(n_input) == False):
+        for i in range(0, len(primel)):
+            while(n_input % primel[i] == 0):
+                print(primel[i])
+                factors.append(primel[i])
+                n_input /= primel[i]
+            if n_input in primel:
+                break 
+    #print(n_input)
+    #factors.append(int(n_input))
+    if(n_input != 1):
         print(int(n_input))
         factors.append(int(n_input))
     print(factors)
     print(time.time() - t0, " s processing time. ")
-    os.system('pause')
