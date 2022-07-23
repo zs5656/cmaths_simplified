@@ -17,7 +17,7 @@ def rsa_gen():
     low = int(input("What is the lower bound? "))
     upp = int(input("what is the upper bound? "))
     print("lower bound: ", low, "\nupper bound: ", upp)
-    pr_list = primeg.primes(low, upp)
+    pr_list = primeg.primes(low, upp, 1)
     pr_length = len(pr_list)
 
     if pr_length == 1:
