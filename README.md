@@ -3,7 +3,7 @@
 RSA simulation that uses python to encrypt and decrypt simple messages. Also includes barebones factorisation and prime generation programs. There are two ways to work with this:
 
 1. EXE install
-- Just click "Releases" -> "v1.0.0" -> Download .exe file and run it. Don't worry, it's not a virus, you can check the source code
+- Just click "Releases" -> "v1.0.0" -> Download .exe file and run it. Don't worry, it's not a virus (because i'm not skilled enough to make one), you can check the source code
 
 2. VSCode Install, or in an IDE
 - Visual Studio Code
