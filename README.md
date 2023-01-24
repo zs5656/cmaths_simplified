@@ -1,5 +1,7 @@
 # cmaths_simplified
 
+Note: Rabinmiller and Cryptomath modules are NOT MINE.
+
 RSA simulation that uses python to encrypt and decrypt simple messages. Also includes barebones factorisation and prime generation programs. There are two ways to work with this:
 
 1. EXE install
