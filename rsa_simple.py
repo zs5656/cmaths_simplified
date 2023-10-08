@@ -30,19 +30,20 @@ def rsa_gen():
             q = pr_list[random.randint(0, pr_length - 1)]
         
         print("=" * 15)
-        print("p = ", p, ", q = ", q)
+        print(f"p = {p}, q = {q}")
 
     n = p*q 
-    print("n = ", p, " * ", q, " = ", n)
+    print(f"n = {p} * {q} = {n}")
 
     phi_n = (p - 1)*(q - 1)
-    print("Φ(n) = ", p-1, " * ", q-1, " = ", phi_n)
+    print(f"Φ(n) = {p-1} * {q-1} = {phi_n}")
+
 
     e = 0
     for i in range (0, int(pr_length) - 1):
         if (phi_n % pr_list[i] != 0 and e != p and e != q):
             e = pr_list[i]
-            print("e = ", e)
+            print(f"e = {e}")
             break
     
     if (e == 0):
@@ -54,12 +55,12 @@ def rsa_gen():
     while (((phi_n * x) + 1) / e) % 1 != 0:
         x = x + 1
 
-    print("x = ", x)
+    print(f"x = {x}")
     d = int(((phi_n * x) + 1) / e) 
-    print("d = ", d)
+    print(f"d = {d}")
 
-    print("\n\nPublic Key e, n: ", e, " , " , n)
-    print("Private Key d, n: ", d, " , " , n)
+    print(f"\n\nPublic Key e, n: {e}, {n}")
+    print(f"Private Key d, n: {d}, {n}")
 
     msg = str(input("\nWhat is the message that you wish to encrypt?\n"))
     ascii_values = []
